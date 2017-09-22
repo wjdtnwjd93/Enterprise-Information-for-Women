@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="sns"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="login"%>
 <%request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE HTML>
 <html>
@@ -15,9 +15,7 @@
 		window.open(
 				"new_user.jsp",
 				"newuser",
-				"titlebar=no,location=no,scrollbars=no,resizeable=no,menubar=no,toolbar=no,width=600,height=500");
-	}
-	
+				"titlebar=no,location=no,scrollbars=no,resizeable=no,menubar=no,toolbar=no,width=600,height=500");}	
 	</script>
 </head>
 <body>
@@ -32,7 +30,7 @@
 			<li id="mainHeaderJoinBtn" class="main-header-menu-item">
 				<a href="javascript:newuser()" class="main-header-link">회원가입</a>
 			</li>
-			<li class="main-header-menu-item"><sns:login/></li>
+			<li class="main-header-menu-item"><login:login/></li>
 		</ul>
 	</div>
 	<div class="main-contents-container"> <!-- 내용 공간 -->
@@ -102,7 +100,7 @@
 		<center>
 		<p class="main-footer-text">
 		2017 redhat PINK CODING FEST<br>
-		기업정보 for Women<br>
+		기업 정보 for Women<br>
 		덕성여자대학교 정수정 강문정 강연우<br>
 		</p>
 		</center>
