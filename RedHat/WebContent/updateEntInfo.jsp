@@ -17,7 +17,8 @@
 	
 	// 엑셀 파일 객체 생성 및 열기
 	er.openFile(file);
-	//er.readDatafromFile();
+	// DB 업데이트 하기
+	er.updateEntDB();
 	
 %>
 </body>
