@@ -11,33 +11,41 @@
 <body>
 <center>
 <form method="post" action="user_control.jsp?action=new">
-	<div class="join-header-area">
-		<h2 class="join-title">회원가입</h2>
-	</div>
-	<div class="join-container">
-	<p class="join-text">회원가입에 필요한 정보를 입력해주세요.</p>
-	<table class="join-table">
-		<tr>
-			<td class="join-table-item"><b>이름</b></td>
-			<td class="join-table-item"><input type="text" name="name" size="10" required></td>
-		</tr>
-		<tr>
-			<td class="join-table-item"><b>아이디</b></td>
-			<td class="join-table-item"><input type="text" name="uid" size="10" required></td>
-		</tr>
-		<tr>
-			<td class="join-table-item"><b>비밀번호</b></td>
-			<td class="join-table-item"><input type="password" name="passwd" size="10" required></td>
-		</tr>
-		<tr>
-			<td class="join-table-item" colspan="2"><center>
-			<input type="submit" value="회원등록" class="join-button">
-			<input type="reset" value="가입취소" class="join-button">
-			</center></td>
-		</tr>
-	</table>
-	</div> 
-	</form>
+   <div class="join-header-area">
+      <h2 class="join-title">회원가입</h2>
+   </div>
+   <div class="join-container">
+   <p class="join-text">회원가입에 필요한 정보를 입력해주세요.</p>
+   <table class="join-table">
+      <tr>
+         <td class="join-table-item"><b>아이디</b></td>
+         <td class="join-table-item"><input type="text" name="uid" size="10" required>
+         </td>
+      </tr>
+       <tr>
+         <td class="join-table-item"><b>비밀번호</b></td>
+         <td class="join-table-item"><input type="password" name="passwd" size="10" required>
+         </td>
+	  </tr>
+      <tr>
+         <td class="join-table-item"><b>이름</b></td>
+         <td class="join-table-item"><input type="text" name="name" size="10" required>
+         </td>
+      </tr>
+      <tr>
+         <td class="join-table-item"><b>이메일</b></td>
+         <td class="join-table-item"><input type="text" name="email" size="30"></td>
+      </tr>
+
+      <tr>
+         <td class="join-table-item" colspan="2"><center>
+         <input type="submit" value="회원등록" class="button">
+         <input type="reset" value="가입취소" class="button">
+         </center></td>
+      </tr>
+   </table>
+   </div> 
+   </form>
 </center>
 </body>
 </html>

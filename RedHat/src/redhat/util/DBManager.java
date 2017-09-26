@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 public class DBManager {
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
+	
 	public static Connection getConnection() {
 		Connection conn;
 		try {
@@ -27,5 +28,4 @@ public class DBManager {
 		}
 		//return conn;
 	}
-
 }

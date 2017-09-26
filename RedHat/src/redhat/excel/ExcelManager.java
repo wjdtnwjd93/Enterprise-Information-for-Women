@@ -10,10 +10,9 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import redhat.enterprise.EnterpriseDAO;
-import redhat.util.DBManager;
 
-// 엑셀 파일 객체
-public class ExcelFile {
+// 엑셀 파일 관리 객체
+public class ExcelManager {
 	String filePath; // 파일 경로 저장 생성자를 통해
 	FileInputStream fis = null; // 입력 스트림
 	HSSFWorkbook workbook = null;
@@ -85,7 +84,6 @@ public class ExcelFile {
 		                    		entFam = true;
 		                    	}
 		                    }
-		            
 		                    break;
 		                    
 		                case HSSFCell.CELL_TYPE_BLANK: // boolean 값 (가족친화)
@@ -104,7 +102,7 @@ public class ExcelFile {
 		            }
 		             
 		        }
-		        	// console 확인
+		        // console 확인
 	            System.out.println("기업코드:"+ entCode + " / 기업이름:"+ entName + " / 가족친화:" + entFam);
 	            
 	            // SQL문을 이용해 DB에 엑셀 데이터 insert

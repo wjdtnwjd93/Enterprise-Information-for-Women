@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import redhat.util.*;
-
+import redhat.member.Member;
+import redhat.member.MemberDAO;
+import redhat.util.DBManager;
 
 public class MemberDAO {
 	Connection conn = null;
@@ -44,6 +45,29 @@ public class MemberDAO {
 		return true;
 	}
 	
+	
+	public boolean outMember(String uid) {
+		conn = DBManager.getConnection();
+		String sql = "delete from redhat_member where uid=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, uid);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.info("Error Code : {}",e.getErrorCode());
+			return false;
+		}
+		finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+	}
 	
 	public boolean login(String uid, String passwd) {
 		conn = DBManager.getConnection();

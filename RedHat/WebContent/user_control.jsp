@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="member" class="redhat.member.Member"/>
 <jsp:setProperty name="member" property="*"/>
 <jsp:useBean id="mdao" class="redhat.member.MemberDAO"/>
-<%request.setCharacterEncoding("UTF-8"); %>
+
 <%
 	String action = request.getParameter("action");
 
@@ -35,5 +36,9 @@
 		//session.removeAttribute("uid");
 		//session.removeAttribute("suid");
 		//response.sendRedirect("sns_control.jsp?action=getall");		
+	}
+	
+	else if(action.equals("setting")){
+		response.sendRedirect("admin_page.jsp");
 	}
 %>
