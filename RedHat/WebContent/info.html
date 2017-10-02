@@ -4,6 +4,21 @@
 <link href="//fonts.googleapis.com/earlyaccess/nanumgothic.css" 
 rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+	<style>
+	body {
+	    opacity: 0;
+	    transition: 1s opacity;
+	}
+	body.fadeIn {
+	    opacity: 1;
+	}
+	</style>
+	
+	<script>
+	window.onload = function() {
+	    document.body.className += ' fadeIn';
+	}
+	</script>
 <title>가족 친화 기업이란?</title>
 <meta charset="utf-8">
 </head>

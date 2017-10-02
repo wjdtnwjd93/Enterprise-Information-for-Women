@@ -45,7 +45,35 @@ public class EnterpriseDAO {
 		}
 	}
 	
-	// 기업 코드로 이름을 찾는 메소드
+	// 기업 코드로 이름를 찾는 메소드
+		public String findEnterpriseName(String e_code) {
+			conn = DBManager.getConnection();
+			String sql = "select e_name from enterprise_data where e_code = ?";
+			//boolean result = false;
+			String name = "";
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, e_code);
+				rs = pstmt.executeQuery();
+				rs.next();
+				name = rs.getString("e_name");
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return name;
+			}
+			finally {
+				try {
+					pstmt.close();
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return name;
+		}
+	
+	// 기업이름로 코드를 찾는 메소드
 	public String findEnterprise(String e_name) {
 		conn = DBManager.getConnection();
 		String sql = "select e_code from enterprise_data where e_name = ?";
@@ -98,6 +126,32 @@ public class EnterpriseDAO {
 		return enterprises;
 	}
 	
-
+	   //기업 이름으로 가족친화기업을 판단
+	   public boolean findEnterpriseFamily(String e_name){
+	      conn = DBManager.getConnection();
+	      String sql = "select e_family from enterprise_data where e_name = ?";
+	      boolean result = false;
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, e_name);
+	         rs = pstmt.executeQuery();
+	         rs.next();
+	         result = rs.getBoolean("e_family");
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	         return result;
+	      }
+	      finally {
+	         try {
+	            pstmt.close();
+	            conn.close();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         }
+	      }
+	      
+	      return result;
+	      
+	   }
 	
 }

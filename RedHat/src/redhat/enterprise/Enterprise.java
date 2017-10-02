@@ -24,6 +24,5 @@ public class Enterprise {
 		this.e_family = e_family;
 	}
 	
-	
 
 }

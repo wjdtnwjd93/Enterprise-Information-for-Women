@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="sns"%>
 <%request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="best" class="redhat.enterprise.BestEnterprise"/>
+<jsp:setProperty name="best" property="*"/>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -10,6 +12,23 @@
    <link rel="stylesheet" href="css/style.css" type="text/css">
    <meta name="description" content="여성 구직자를 위한 기업, 채용, 복지 정보가 모두 모인 곳!">
    <title>기업 정보 for Women</title>
+   
+	<style>
+	body {
+	    opacity: 0;
+	    transition: 1s opacity;
+	}
+	body.fadeIn {
+	    opacity: 1;
+	}
+	</style>
+	
+	<script>
+	window.onload = function() {
+	    document.body.className += ' fadeIn';
+	}
+	</script>
+
    <script>
    function newuser() {
       window.open(
@@ -17,6 +36,7 @@
             "newuser",
             "titlebar=no,location=no,scrollbars=no,resizeable=no,menubar=no,toolbar=no,width=700,height=500");
    }
+  
    </script>
 </head>
 <body>
@@ -33,7 +53,7 @@
          	  <a href="scrap_list.jsp">스크랩</a>
            </li> 
            <%};%>
-         <li id="mainHeaderJoinBtn" class="main-header-menu-item">
+         <li id="mainHeaderJoi `nBtn" class="main-header-menu-item">
             <%
             if(session.getAttribute("uid")==null)
             {
@@ -79,10 +99,27 @@
             <div class="sub-title">
                <b>베스트 평점 기업</b>
                <ul class="sub-list">
-                  <li class="sub-list-item">Test1</li>
-                  <li class="sub-list-item">Test2</li>
-                  <li class="sub-list-item">Test3</li>
+               	 <% String entName = best.getBestEnterpriseName1();%>
+               	 <% String entName1 = best.getBestEnterpriseName2();%>
+               	 <% String entName2 = best.getBestEnterpriseName3();%>
+                  <li class="sub-list-item">
+                  <form action="searchEnt.jsp" method="post" >
+                  <input type= "submit" name="entName" value="<%=entName%>"  >       
+                  </form></li>
+                
+                  <li class="sub-list-item">
+                  <form action="searchEnt.jsp" method="post" >
+                  <input type= "submit"  name="entName" value="<%=entName1%>"  >       
+                  </form></li>
+                  
+                  <li class="sub-list-item">
+                  <form action="searchEnt.jsp" method="post" >
+                  <input type = "submit"  name="entName" value="<%=entName2%>">
+                  </form></li>   
+                                     
                </ul>
+            </div>
+         </div>
             </div>
          </div>
          <div class="main-recent-comment-list">
@@ -106,12 +143,11 @@
                   width="890px" height="300px" scrolling="auto"></iframe>
             </div>
          </div>
-      </div>
-   </div>
+
    <div class="main-footer-contents">
       <center>
       <p class="main-footer-text">
-      2017 redhat PINK CODING FEST<br>
+   2017 redhat PINK CODING FEST<br>
       기업정보 for Women<br>
       덕성여자대학교 정수정 강문정 강연우<br>
       </p>
